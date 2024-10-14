@@ -1,0 +1,42 @@
+FORM INPUT(form_submit_reset.php)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit and Reset Form</title>
+</head>
+<body>
+    <h2>Enter Your G.R No. and Name</h2>
+    <form action="display.php" method="post">
+        <label>Enter G.R No.:</label>
+        <input type="text" name="gr_no" required><br><br>
+
+        <label>Enter Name:</label>
+        <input type="text" name="name" required><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
+
+DISPLAY OUTPUT(display.php)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submitted Data</title>
+</head>
+<body>
+    <h2>Submitted Data</h2>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $grNo = $_POST['gr_no'];
+        $name = $_POST['name'];
+
+        echo "G.R No.: $grNo<br>";
+        echo "Name: $name<br>";
+    }
+    ?>
+</body>
+</html>
