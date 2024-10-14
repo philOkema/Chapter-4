@@ -1,0 +1,52 @@
+FORM INPUT(form_post.php)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information Form</title>
+</head>
+<body>
+    <h2>Enter Student Information</h2>
+    <form action="post_output.php" method="post">
+        <label>Enter Student Name:</label>
+        <input type="text" name="student_name" required><br><br>
+
+        <label>Enter Student G.R #:</label>
+        <input type="text" name="gr_no" required><br><br>
+
+        <label>Enter Class:</label>
+        <input type="text" name="class" required><br><br>
+
+        <label>Enter Section:</label>
+        <input type="text" name="section" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+DISPLAY OUTPUT(post_output.php)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information Output</title>
+</head>
+<body>
+    <h2>Submitted Student Information</h2>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST['student_name'];
+        $grNo = $_POST['gr_no'];
+        $class = $_POST['class'];
+        $section = $_POST['section'];
+
+        echo "Student Name: $name<br>";
+        echo "Student G.R #: $grNo<br>";
+        echo "Class: $class<br>";
+        echo "Section: $section<br>";
+    }
+    ?>
+</body>
+</html>
+
